@@ -1,69 +1,39 @@
-# ClosuresAndResultBuild
+# Mastering Swift6
 
-A small Swift playground project that explores two language features:
+This repository is a collection of Swift 6 playgrounds focused on learning, experimenting with, and demonstrating different language features and core concepts.
 
-- Closures
-- Result builders
+Rather than centering on a single topic, the repository is intended to grow over time as new playgrounds are added for additional Swift subjects.
 
-The code is written as a hands-on learning playground rather than a packaged app or library. It includes simple examples you can run and modify in Xcode to understand how these features work.
+## Current playgrounds
 
-## What's inside
+- `ClosuresAndResultBuild.playground`
+  Covers closures and result builders with small, runnable examples.
+- `ProtocolsAndExtensions.playground`
+  Covers protocols and extensions through hands-on playground code.
 
-The playground covers:
+## Purpose
 
-- Basic closure declarations and invocation
-- Passing closures as function parameters
-- Trailing closure syntax
-- Using closures with collections such as `map`
-- Capturing values from surrounding scope
-- A simple `Logger` type that stores handlers by log level
-- A custom `StringBuilder` result builder
-- A custom `JSONBuilder` result builder that builds a dictionary
-
-Main file:
-
-- `ClosuresAndResultBuild.playground/Contents.swift`
+These playgrounds are designed as learning material instead of a packaged app or library. Each playground contains examples that can be opened in Xcode, run, and modified to better understand how specific Swift features work in practice.
 
 ## Requirements
 
 - Xcode with Swift playground support
 - Swift 6 playground runtime
 
-The playground is configured for:
-
-- Target platform: iOS
-- Swift version: 6
-
 ## How to run
 
-1. Open `ClosuresAndResultBuild.playground` in Xcode.
+1. Open any `.playground` in Xcode.
 2. Run the playground.
-3. Review the console output and edit the examples to experiment.
-
-## Example topics demonstrated
-
-### Closures
-
-The playground includes examples of:
-
-- Closures with no parameters and no return value
-- Closures that accept parameters
-- Closures that return values
-- Passing named closures into functions
-- Inline trailing closures
-
-### Result builders
-
-Two custom builders are included:
-
-- `StringBuilder` joins multiple string components into one string
-- `JSONBuilder` combines dictionary expressions into a single JSON-like dictionary
+3. Review the output and edit the examples to experiment with the topic.
 
 ## Project structure
 
 ```text
-ClosuresAndResultBuild/
+MasteringSwift6/
 ├── ClosuresAndResultBuild.playground/
+│   ├── Contents.swift
+│   └── contents.xcplayground
+├── ProtocolsAndExtensions.playground/
 │   ├── Contents.swift
 │   └── contents.xcplayground
 └── README.md
@@ -71,10 +41,9 @@ ClosuresAndResultBuild/
 
 ## Notes
 
-- This project is intended for learning and experimentation.
-- The JSON example uses `[String: Any]` for simplicity.
-- Output is printed directly from the playground.
+- This repository is intended for learning and experimentation.
+- New playgrounds covering additional Swift topics may be added over time.
 
 ## License
 
-Examples from the book "Mastering Swift 6" by Jon Hoffman. All the examples from the book can be found publicly in the book's Github repository: https://github.com/PacktPublishing/Mastering-Swift-6-Seventh-Edition
+Examples from the book "Mastering Swift 6" by Jon Hoffman. All the examples from the book can be found publicly in the book's GitHub repository: https://github.com/PacktPublishing/Mastering-Swift-6-Seventh-Edition
