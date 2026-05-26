@@ -26,15 +26,45 @@ These playgrounds are designed as learning material instead of a packaged app or
 2. Run the playground.
 3. Review the output and edit the examples to experiment with the topic.
 
+## Suggested learning template
+
+Each playground can carry its own study notes so the code and the reasoning stay together.
+
+Recommended structure inside every playground package:
+
+```text
+TopicName.playground/
+├── Contents.swift
+├── Notes.md
+└── contents.xcplayground
+```
+
+Use `Notes.md` to keep:
+
+- A short summary of the topic
+- Questions asked to the coding assistant
+- Final answers or takeaways worth keeping
+- Small experiments to try later
+- Useful Swift rules or gotchas discovered while exploring
+
+Suggested workflow:
+
+1. Explore the topic in `Contents.swift`.
+2. Ask the coding assistant questions as you go.
+3. Copy only the useful parts into `Notes.md`.
+4. End each session with a short “Key takeaways” section.
+
 ## Project structure
 
 ```text
 MasteringSwift6/
 ├── ClosuresAndResultBuild.playground/
 │   ├── Contents.swift
+│   ├── Notes.md
 │   └── contents.xcplayground
 ├── ProtocolsAndExtensions.playground/
 │   ├── Contents.swift
+│   ├── Notes.md
 │   └── contents.xcplayground
 └── README.md
 ```
