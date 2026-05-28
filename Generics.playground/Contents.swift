@@ -60,3 +60,37 @@ func testFunction<T: MyClass, E: MyProtocol>(a: T, b: E) {
     //Statements
 }
 
+//Generic types
+//A generic type is a class or structure that can contain any type, just like arrays and dictionaries, e.g.
+class List<T: Comparable> {
+    private var items = [T]()
+
+    func add(item: T) {
+        items.append(item)
+    }
+
+    func getItemAtIndex(index: Int) -> T? {
+        if items.count>index {
+            return items[index]
+        } else {
+            return nil
+        }
+    }
+}
+
+var list = List<String>()
+list.add(item: "Hello")
+list.add(item: "World")
+print(list.getItemAtIndex(index: 1)!)
+
+var customList = List<Int>()
+
+//Conditionally adding extensions with generics
+//The following extension add the sum function to the generic type only if it conforms to the Numeric protocol
+extension List where T: Numeric {
+    func sum() -> T {
+        return items.reduce(0, +)
+    }
+}
+
+
