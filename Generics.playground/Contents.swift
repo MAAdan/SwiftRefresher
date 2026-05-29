@@ -93,4 +93,42 @@ extension List where T: Numeric {
     }
 }
 
+var list2 = List<Int>()
+list2.add(item: 2)
+list2.add(item: 4)
+list2.add(item: 6)
+print(list2.sum())
 
+//Conditionally adding functions. Recommended over conditionally adding extensions as in the previous example.
+extension List {
+    func sum2() -> T where T: Numeric {
+        return items.reduce(0, +)
+    }
+
+    func sorted() -> [T] where T: Comparable {
+        return items.sorted()
+    }
+}
+
+//Conditional conformance. It allows a generic type to conform to a protocol only if the type meets certain conditions.
+extension List: Equatable where T: Equatable {
+    static func == (lhs: List<T>, rhs: List<T>) -> Bool {
+        if lhs.items != rhs.items {
+            return false
+        }
+
+        for (e1, e2) in zip(lhs.items, rhs.items) {
+            if e1 != e2 {
+                return false
+            }
+        }
+        return true
+    }
+}
+
+//Generic subscripts
+struct HashProvider {
+    subscript<T: Hashable>(item: T) -> Int {
+        return item.hashValue
+    }
+}
