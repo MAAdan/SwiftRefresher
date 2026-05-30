@@ -132,3 +132,81 @@ struct HashProvider {
         return item.hashValue
     }
 }
+
+//Associated types. An associated type declares a placeholder name that can be used instead of a concrete type within a protocol where the type to use is not specified until the protocol is adopted.
+protocol QueueProtocol {
+    associatedtype QueueType
+    mutating func add(item: QueueType)
+    mutating func getItem() -> QueueType?
+    func count() -> Int
+}
+
+class IntQueue: QueueProtocol {
+    typealias QueueType = Int
+
+    var items = [Int]()
+
+    func add(item: Int) {
+        items.append(item)
+    }
+
+    func getItem() -> Int? {
+        return items.count > 0 ? items.removeFirst() : nil
+    }
+
+    func count() -> Int {
+        return items.count
+    }
+}
+
+var intQ = IntQueue()
+intQ.add(item: 2)
+intQ.add(item: 4)
+
+print(intQ.getItem()!)
+intQ.add(item: 6)
+
+//We can also implement Queue with a generic type. Let’s see how we would do this:
+class GenericQueue<T>: QueueProtocol {
+    var items = [T]()
+    func add(item: T) {
+        items.append(item)
+    }
+    func getItem() -> T? {
+        return items.count > 0 ? items.remove(at:0) : nil
+    }
+    func count() -> Int {
+        return items.count
+    }
+}
+
+var stringQueue = GenericQueue<String>()
+stringQueue.add(item: "Hi")
+stringQueue.add(item: "Miguel")
+print(stringQueue.getItem()!)
+stringQueue.add(item: "Adan")
+
+//Implicitly opened existentials. Before Swift 5.7, it was not possible to use protocols that contained associated types or self requirements as types.
+
+protocol Drawable {
+    func draw()
+}
+
+struct Circle: Drawable {
+    func draw() {
+        print("Drawing a circle")
+    }
+}
+
+struct Square: Drawable {
+    func draw() {
+        print("Drawing a square")
+    }
+}
+
+// Before Swift 5.7, the following function would not be valid. Now, with the addition of the existential any, we can write this code like this:
+func drawAll(_ items: [any Drawable]) {
+    for item in items {
+        item.draw()
+    }
+}
